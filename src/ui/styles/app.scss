@@ -1,4 +1,4 @@
-@import "normalize.css";
+@import 'normalize.css';
 @import 'bulma';
 $bg-color: #e8eadf;
 $bg-gradient: #e6e6e6;
@@ -17,4 +17,28 @@ body {
   margin: 0;
   // padding: 1rem 0 1rem;
   text-align: center;
+}
+
+.box {
+  position: relative;
+}
+
+.tag {
+  font-weight: bold;
+}
+
+.timestamp {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.hashtags {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  .tag {
+    cursor: pointer;
+  }
 }

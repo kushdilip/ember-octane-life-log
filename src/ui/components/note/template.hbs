@@ -1,0 +1,19 @@
+<div class="box">
+  <div class="content">
+    <p class="subtitle" style="text-align: left">
+      {{@content.text}}
+    </p>
+  </div>
+  <div class="timestamp">
+    <span class="tag is-info">
+      {{datetime}}
+    </span>
+  </div>
+  <div class="hashtags">
+    {{#each tags as |tag|}}
+      <span class="tag is-info">
+        {{tag}}
+      </span>
+    {{/each}}
+  </div>
+</div>
