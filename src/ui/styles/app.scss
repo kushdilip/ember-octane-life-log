@@ -1,0 +1,20 @@
+@import "normalize.css";
+@import 'bulma';
+$bg-color: #e8eadf;
+$bg-gradient: #e6e6e6;
+
+html {
+  background: $bg-color;
+  background-image: radial-gradient(50% 30% ellipse at center top, $bg-gradient 0%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(60% 50% ellipse at center bottom, $bg-gradient 0%, $bg-color 100%);
+  background-attachment: fixed;
+  color: #6cacc5;
+}
+
+body {
+  color: #6cacc5;
+  font: 300 62.5% 'Source Sans Pro', sans-serif;
+  margin: 0;
+  // padding: 1rem 0 1rem;
+  text-align: center;
+}
