@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "ember build",
+    "build:prod": "ember build -e production --output-path dist/ember-octane-life-log",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",

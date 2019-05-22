@@ -52,7 +52,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.rootURL = '/resume';
+    ENV.locationType = 'hash';
   }
 
   return ENV;
