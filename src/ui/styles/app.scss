@@ -1,5 +1,7 @@
 @import 'normalize.css';
 @import 'bulma';
+@import 'common/loader';
+
 $bg-color: #e8eadf;
 $bg-gradient: #e6e6e6;
 
@@ -13,10 +15,15 @@ html {
 
 body {
   color: #6cacc5;
-  font: 300 62.5% 'Source Sans Pro', sans-serif;
+  font: 300 'Source Sans Pro', sans-serif;
+  font-size: 62.5%;
   margin: 0;
   // padding: 1rem 0 1rem;
   text-align: center;
+}
+
+.section {
+  padding: 1rem 1.5rem;
 }
 
 .box {
@@ -25,6 +32,7 @@ body {
 
 .tag {
   font-weight: bold;
+  cursor: pointer;
 }
 
 .timestamp {
@@ -37,8 +45,13 @@ body {
   position: absolute;
   right: 10px;
   bottom: 10px;
+}
 
-  .tag {
-    cursor: pointer;
+.input-container {
+  position: relative;
+
+  .lds-ellipsis {
+    position: absolute;
+    top: 10px;
   }
 }

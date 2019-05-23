@@ -19,6 +19,13 @@ const DEFAULT_NOTES = [
 ];
 
 const notes = [...DEFAULT_NOTES];
+const notesWithTags = notes.map(note => {
+  return { ...note, ...{ tags: extractTags(note.text) } };
+});
+
+function extractTags(text = '') {
+  return text.match(/#[a-z]+/gi);
+}
 
 /**
  * delay in ms
@@ -33,7 +40,7 @@ export function fetchNotes() {
   return new Promise(resolve => {
     const delay = getRandomDelay();
     setTimeout(() => {
-      resolve([...notes]);
+      resolve([...notesWithTags]);
     }, delay);
   });
 }
@@ -43,7 +50,7 @@ export function addNote({ text, timestamp }) {
     const delay = getRandomDelay();
     setTimeout(() => {
       const id = notes.length + 1;
-      const note = { id, text, timestamp };
+      const note = { id, text, timestamp, tags: extractTags(text) };
       notes.push(note);
       resolve(note);
     }, delay);

@@ -1,16 +1,40 @@
-<section class="hero is-primary">
+<section class="hero section is-primary">
   <h1 class="title">
     Ember Octane Demo | Life Log
   </h1>
 </section>
-<section class="section">
-  <div class="container">
-    <NoteInput @addNote={{action addNote}} name="add-note" value={{inputValue}}/>
+<section class="section input-container">
+  <NoteInput
+    @addNote={{action addNote}}
+    @focusInput={{action focusInput}}
+    name="add-note"
+    class="input is-large"
+    placeholder="Type something here with hashtags #awesome"
+    value={{inputValue}}
+    aria-label="add note here"
+    disabled={{if isLoading "disabled" ""}}
+   />
+
+  {{#if isLoading}}
+    <Common::Loader />
+  {{/if}}
+</section>
+<div class="columns section">
+  <section class="column">
+    {{#each notes as |note|}}
+      <Note @content={{note}} />
+    {{/each}}
+  </section>
+  <div class="column is-one-quarter tags" style="text-align: left;">
+    <div class="box">
+      <h2 class="title is-4">
+        Tags
+      </h2>
+      {{#each allTags as |tag|}}
+        <span class="tag is-info is-medium">
+          {{tag}}
+        </span>
+      {{/each}}
+    </div>
   </div>
-</section>
-<section class="section">
-  {{notes.length}}
-  {{#each notes as |note|}}
-    <Note @content={{note}} />
-  {{/each}}
-</section>
+</div>

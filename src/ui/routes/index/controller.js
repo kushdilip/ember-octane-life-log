@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import { computed } from '@ember/object';
 import { addNote } from 'ember-octane-life-log/src/utils/notes';
 import { tracked } from '@glimmer/tracking';
 
@@ -8,8 +9,21 @@ const KEYCODES = {
 };
 
 export default class IndexController extends Controller {
-  @tracked
-  inputValue = '';
+  @tracked isLoading = false;
+  @tracked inputValue = '';
+
+  @computed('notes.@each.text')
+  get allTags() {
+    return this.notes
+      .reduce((allTags, note) => {
+        return [...allTags, ...note.tags];
+      }, [])
+      .uniq();
+  }
+
+  focusInput(element) {
+    element.focus();
+  }
 
   @action addNote(event) {
     const {
@@ -19,9 +33,11 @@ export default class IndexController extends Controller {
 
     if (keyCode === KEYCODES.ENTER && value) {
       const timestamp = new Date().getTime();
+      this.isLoading = true;
       addNote({ text: value, timestamp }).then(note => {
         this.notes.unshiftObject(note);
         this.inputValue = '';
+        this.isLoading = false;
       });
     }
   }
