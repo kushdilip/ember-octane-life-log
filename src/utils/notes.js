@@ -1,4 +1,5 @@
 import { Promise } from 'rsvp';
+import { later } from '@ember/runloop';
 
 const DEFAULT_NOTES = [
   {
@@ -8,7 +9,7 @@ const DEFAULT_NOTES = [
   },
   {
     id: 2,
-    text: 'Had a meeting, lots of input #meetings',
+    text: 'Had a meeting, lots of inputs, missed lunch #meetings #lunch',
     timestamp: '1558541488775',
   },
   {
@@ -18,30 +19,37 @@ const DEFAULT_NOTES = [
   },
 ];
 
-const notes = [...DEFAULT_NOTES];
-const notesWithTags = notes.map(note => {
+const _notes = [...DEFAULT_NOTES];
+const allNotes = _notes.map(note => {
   return { ...note, ...{ tags: extractTags(note.text) } };
 });
 
 function extractTags(text = '') {
-  return text.match(/#[a-z]+/gi);
+  return text.match(/#[a-z]+/gi).map(tag => tag.slice(1));
 }
 
 /**
  * delay in ms
  */
-function getRandomDelay() {
-  const maxDelay = 800;
-  const minDelay = 500;
-  return Math.random() * (maxDelay - minDelay) + minDelay;
+function getRandomDelay(min = 300, max = min + 200) {
+  if (min > max) {
+    throw new Error('max delay cannot be less than min');
+  }
+  return Math.random() * (max - min) + min;
 }
 
 export function fetchNotes() {
   return new Promise(resolve => {
     const delay = getRandomDelay();
-    setTimeout(() => {
-      resolve([...notesWithTags]);
+    later(() => {
+      resolve([...allNotes])
     }, delay);
+  });
+}
+
+export function fetchNotesByTagName(tagname) {
+  return fetchNotes().then(notes => {
+    return notes.filter(note => note.tags.includes(tagname));
   });
 }
 
@@ -49,9 +57,9 @@ export function addNote({ text, timestamp }) {
   return new Promise(resolve => {
     const delay = getRandomDelay();
     setTimeout(() => {
-      const id = notes.length + 1;
+      const id = allNotes.length + 1;
       const note = { id, text, timestamp, tags: extractTags(text) };
-      notes.push(note);
+      allNotes.push(note);
       resolve(note);
     }, delay);
   });

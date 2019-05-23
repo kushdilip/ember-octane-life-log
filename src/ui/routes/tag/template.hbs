@@ -1,0 +1,9 @@
+<div class="section container">
+  <div class="title is-4 align-left">
+    Notes with tag
+    <span class="title is-3">{{tagname}}</span>
+  </div>
+  {{#each notes as |note|}}
+    <Note @content={{note}} />
+  {{/each}}
+</div>

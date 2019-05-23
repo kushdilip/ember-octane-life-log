@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
 import { addNote } from 'ember-octane-life-log/src/utils/notes';
 import { tracked } from '@glimmer/tracking';
 
@@ -9,6 +10,8 @@ const KEYCODES = {
 };
 
 export default class IndexController extends Controller {
+  @alias('model') notes;
+
   @tracked isLoading = false;
   @tracked inputValue = '';
 
