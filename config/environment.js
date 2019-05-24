@@ -52,7 +52,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = '/resume';
+    ENV.rootURL = '/ember-octane-life-log';
     ENV.locationType = 'hash';
   }
 
