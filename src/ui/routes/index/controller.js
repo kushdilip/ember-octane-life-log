@@ -17,11 +17,16 @@ export default class IndexController extends Controller {
 
   @computed('notes.@each.text')
   get allTags() {
-    return this.notes
+    const tagsMap = this.notes
       .reduce((allTags, note) => {
         return [...allTags, ...note.tags];
       }, [])
-      .uniq();
+      .reduce((tagMap, tag) => {
+        return tagMap.has(tag) ? tagMap.set(tag, tagMap.get(tag) + 1) : tagMap.set(tag, 1);
+      }, new Map());
+
+    const allTags = Array.from(tagsMap.entries()).map(tag => ({ value: tag[0], notesCount: tag[1] }));
+    return allTags;
   }
 
   focusInput(element) {

@@ -58,7 +58,8 @@ export function addNote({ text, timestamp }) {
     const delay = getRandomDelay();
     setTimeout(() => {
       const id = allNotes.length + 1;
-      const note = { id, text, timestamp, tags: extractTags(text) };
+      const tags = extractTags(text).uniq();
+      const note = { id, text, timestamp, tags };
       allNotes.push(note);
       resolve(note);
     }, delay);
