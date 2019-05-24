@@ -27,7 +27,12 @@
           Tags
         </h2>
         {{#each allTags as |tag|}}
-          <Common::Tag @value={{tag.value}} class="is-medium" />
+          <Common::Tag @value={{tag.value}} class="is-medium">
+            #{{tag.value}}
+            (
+            {{tag.notesCount}}
+            )
+          </Common::Tag>
         {{/each}}
       </div>
     </div>
