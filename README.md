@@ -1,22 +1,52 @@
-# ember-octane-life-log
+# Ember Octane Demo
+This is a demo app which utilizes features available as part of Ember Octane Edition and few other experimental features
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+## Octane Features used
+- Native Javascript classes
+- Decorators
+- Tracked properties
+- <AngleBracket> syntax
+- ...attributes | splattributes
+- Modifiers
+
+## Experimental Features
+- Module Unification
+
+## Slide for talk
+[Insert slides here]
+
+## Ember Octane Feature Resources
+
+- https://www.pzuraq.com/
+    - [Native Classes (+Decorators)](https://www.pzuraq.com/coming-soon-in-ember-octane-part-1-native-classes/)
+    - [Angle Brackets & Named Arguments](https://www.pzuraq.com/coming-soon-in-ember-octane-part-2-angle-brackets-and-named-arguments/)
+    - [Tracked Properties](https://www.pzuraq.com/coming-soon-in-ember-octane-part-3-tracked-properties/)
+    - [Modifiers](https://www.pzuraq.com/coming-soon-in-ember-octane-part-4-modifiers/)
+    - [Glimmer Components](https://www.pzuraq.com/coming-soon-in-ember-octane-part-5-glimmer-components/)
+- [Ember Octane learning guides](https://github.com/ember-learn/guides-source/blob/octane/guides/release/upgrading/editions.md) [In Progress]
+
+## Module Unification (MU)
+- [MU RFC](https://emberjs.github.io/rfcs/0143-module-unification.html)
+- [Status of Module Unification](https://blog.emberjs.com/2019/03/11/update-on-module-unification-and-octane.html)
+
+# How to run the demo
 
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
+* [Volta](https://volta.sh/) to install Node.js, Yarn & Ember CLI
 * [Node.js](https://nodejs.org/) (with npm)
+* [Yarn](https://yarnpkg.com/en/)
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/kushdilip/ember-octane-life-log` this repository
 * `cd ember-octane-life-log`
-* `npm install`
+* `yarn`
 
 ## Running / Development
 
@@ -43,10 +73,6 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 * `ember build` (development)
 * `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 
