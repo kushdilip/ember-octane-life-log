@@ -1,6 +1,12 @@
 # Ember Octane Demo
 This is a demo app which utilizes features available as part of Ember Octane Edition and few other experimental features
 
+- ## [Slides](https://github.com/kushdilip/ember-octane-life-log/blob/master/Ember%20Developement%20in%202019.pdf)
+
+- ## [Live Demo](https://kushdilip.in/ember-octane-life-log)
+- ### [Live Demo alternate link](https://octane-demo.netlify.com/ember-octane-life-log/)
+
+
 ## Octane Features used
 - Native Javascript classes
 - Decorators
@@ -11,9 +17,6 @@ This is a demo app which utilizes features available as part of Ember Octane Edi
 
 ## Experimental Features
 - Module Unification
-
-## Slide for talk
-[Insert slides here]
 
 ## Ember Octane Feature Resources
 
