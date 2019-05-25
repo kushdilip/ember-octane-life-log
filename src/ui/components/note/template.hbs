@@ -11,7 +11,9 @@
   </div>
   <div class="hashtags">
     {{#each @content.tags as |tag|}}
-      <Common::Tag @value={{tag}} />
+      <Common::Tag @value={{tag}}>
+        {{tag}}
+      </Common::Tag>
     {{/each}}
   </div>
 </div>
